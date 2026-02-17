@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manage Plants</title>
+    <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body>
+
+<div class="sidebar">
+    <a href="dashboard.html">Dashboard</a>
+    <a href="add-plant.html">Add Plant</a>
+    <a href="manage-plants.html">Manage</a>
+    <a href="orders.html">Orders</a>
+    <a href="/index.html">Users</a>
+    <button onclick="toggleTheme()">🌙</button>
+
+</div>
+
+<div class="content">
+    <h2>Manage Plants</h2>
+
+    <select id="filterCategory" class="filter">
+        <option value="All">All Plants</option>
+        <option value="Indoor">Indoor</option>
+        <option value="Outdoor">Outdoor</option>
+    </select>
+
+    <div id="plantList" class="plant-grid"></div>
+</div>
+
+<script src="../assets/js/admin.js"></script>
+</body>
+</html>

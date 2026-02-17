@@ -1,0 +1,710 @@
+/* =========================
+   ROOT VARIABLES
+========================= */
+:root {
+    --primary: #2e7d32;
+    --light-bg: #f5f9f6;
+    --card-bg: #ffffff;
+    --text: #222;
+    --sidebar-bg: #ffffff;
+    --shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+body.dark {
+    --primary: #66bb6a;
+    --light-bg: #1b1b1b;
+    --card-bg: #242424;
+    --text: #f1f1f1;
+    --sidebar-bg: #2c2c2c;
+}
+
+/* =========================
+   GLOBAL
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: var(--light-bg);
+    color: var(--text);
+    transition: 0.3s;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* =========================
+   HEADER
+========================= */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: var(--card-bg);
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header h2 {
+    color: var(--primary);
+}
+
+nav a {
+    margin: 0 12px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--primary);
+}
+
+/* =========================
+   SEARCH BOX
+========================= */
+.search-box {
+    display: flex;
+    gap: 5px;
+}
+
+.search-box input {
+    padding: 7px 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.search-box button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 7px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* =========================
+   HEADER CONTROLS
+========================= */
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-controls button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* =========================
+   LAYOUT
+========================= */
+.container {
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+.sidebar {
+    width: 250px;
+    background: var(--sidebar-bg);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+
+.sidebar h3 {
+    margin-bottom: 10px;
+    color: var(--primary);
+}
+
+.sidebar ul {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.sidebar ul li {
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.sidebar ul li:hover,
+.sidebar ul li.active {
+    background: var(--primary);
+    color: white;
+}
+
+.sidebar label {
+    display: block;
+    margin-top: 15px;
+    font-weight: 500;
+}
+
+.sidebar input,
+.sidebar select {
+    width: 100%;
+    padding: 6px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* =========================
+   MAIN CONTENT
+========================= */
+.content {
+    flex: 1;
+}
+
+.content h2 {
+    margin-bottom: 20px;
+    color: var(--primary);
+}
+
+/* =========================
+   GRID & CARDS
+========================= */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.card h3,
+.card p {
+    margin-top: 10px;
+}
+
+.card a {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 6px 12px;
+    background: var(--primary);
+    color: white;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* =========================
+   RECOMMEND BOX
+========================= */
+.recommend-box {
+    margin-top: 40px;
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+
+.recommend-box select,
+.recommend-box button {
+    padding: 7px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.recommend-box button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+@media(max-width: 900px){
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+}
+
+@media(max-width: 600px){
+    header {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .search-box {
+        width: 100%;
+        justify-content: center;
+    }
+}
+/* =========================
+   ADD PLANT FORM
+========================= */
+
+.plant-form {
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    max-width: 500px;
+}
+
+.plant-form label {
+    display: block;
+    margin-top: 15px;
+    font-weight: 500;
+}
+
+.plant-form input,
+.plant-form select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    background: transparent;
+    color: var(--text);
+    transition: 0.3s;
+}
+
+/* Focus effect */
+.plant-form input:focus,
+.plant-form select:focus {
+    border-color: var(--primary);
+    outline: none;
+    box-shadow: 0 0 5px rgba(46,125,50,0.3);
+}
+
+/* File input */
+.plant-form input[type="file"] {
+    padding: 6px;
+    cursor: pointer;
+}
+
+/* Image Preview */
+.image-preview {
+    margin-top: 15px;
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    display: none;
+    border: 2px dashed var(--primary);
+    padding: 5px;
+}
+
+/* Submit Button */
+.plant-form button {
+    margin-top: 20px;
+    padding: 12px;
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    background: var(--primary);
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.plant-form button:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media(max-width: 600px){
+    .plant-form {
+        padding: 15px;
+    }
+}
+.plant-form input[type="file"] {
+    border: 2px dashed var(--primary);
+    padding: 20px;
+    text-align: center;
+    background: rgba(46,125,50,0.05);
+}
+/* ===== HEADER ===== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: #2e7d32;
+  color: white;
+}
+
+.nav a {
+  margin: 0 12px;
+  color: white;
+  text-decoration: none;
+}
+
+.header-controls {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+/* ===== LAYOUT ===== */
+.layout {
+  display: flex;
+  padding: 20px;
+  gap: 20px;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+  width: 250px;
+  background: #ffffff;
+  padding: 15px;
+  border-radius: 10px;
+  height: fit-content;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  padding: 8px 0;
+  cursor: pointer;
+}
+
+.sidebar ul li.active {
+  font-weight: bold;
+  color: #2e7d32;
+}
+
+/* ===== MAIN CONTENT ===== */
+.main-content {
+  flex: 1;
+}
+
+/* ===== 3 CARDS PER ROW ===== */
+.plant-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* ===== CARD ===== */
+.plant-card {
+  background: white;
+  border-radius: 10px;
+  padding: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.plant-card:hover {
+  transform: translateY(-5px);
+}
+
+.plant-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.plant-card h3 {
+  margin: 10px 0 5px;
+}
+
+.plant-card button {
+  background: #2e7d32;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+  .plant-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
+
+  .plant-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* ================= RANGE SLIDER BASE ================= */
+
+#priceFilter {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* ================= LIGHT MODE ================= */
+
+body:not(.dark) #priceFilter {
+  background: #ddd;
+}
+
+body:not(.dark) #priceFilter::-webkit-slider-runnable-track {
+  background: linear-gradient(to right, #2e7d32, #81c784);
+  height: 6px;
+  border-radius: 10px;
+}
+
+body:not(.dark) #priceFilter::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #2e7d32;
+  border: 3px solid #ffffff;
+  margin-top: -6px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+/* ================= DARK MODE ================= */
+
+body.dark #priceFilter {
+  background: #2a2a2a;
+}
+
+body.dark #priceFilter::-webkit-slider-runnable-track {
+  background: linear-gradient(to right, #4caf50, #2e7d32);
+  height: 6px;
+  border-radius: 10px;
+}
+
+body.dark #priceFilter::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #81c784;
+  border: 3px solid #1e1e1e;
+  margin-top: -7px;
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(76,175,80,0.7);
+  transition: 0.2s;
+}
+
+body.dark #priceFilter::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+/* ================= FIREFOX SUPPORT ================= */
+
+body.dark #priceFilter::-moz-range-track {
+  background: linear-gradient(to right, #4caf50, #2e7d32);
+  height: 6px;
+  border-radius: 10px;
+}
+
+body.dark #priceFilter::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #81c784;
+  border: none;
+  box-shadow: 0 0 8px rgba(76,175,80,0.7);
+  cursor: pointer;
+}
+body.dark .sidebar {
+  background: #1e1e1e;
+}
+
+body.dark .sidebar label {
+  color: #e0e0e0;
+}
+body.dark .sidebar {
+  background: #1e1e1e;
+}
+
+body.dark .sidebar label {
+  color: #e0e0e0;
+}
+/* Sidebar text fix */
+
+.sidebar h3,
+.sidebar label,
+.sidebar li,
+.sidebar select {
+  color: #333;
+}
+
+body.dark .sidebar h3,
+body.dark .sidebar label,
+body.dark .sidebar li,
+body.dark .sidebar select {
+  color: #ffffff;
+}
+/* ===== SLIDER LABEL TEXT ===== */
+
+#priceLabel,
+#priceLabel span {
+  color: #333;
+  font-size: 14px;
+}
+
+/* ===== DARK MODE FIX ===== */
+
+body.dark #priceLabel,
+body.dark #priceLabel span {
+  color: #ffffff;
+}
+select {
+  color: #222;
+  background: #ffffff;
+}
+
+body.dark select {
+  color: #ffffff;
+  background: #2a2a2a;
+}
+/* ================= LIGHT THEME TEXT FIX ================= */
+
+body {
+  background: #f4f6f9;
+  color: #222;   /* force readable dark text */
+}
+
+/* Sidebar text in light mode */
+.sidebar h3,
+.sidebar label,
+.sidebar li,
+.sidebar select,
+#priceLabel,
+#priceLabel span {
+  color: #222;
+}
+
+/* ================= DARK THEME TEXT ================= */
+
+body.dark {
+  background: #121212;
+  color: #ffffff;
+}
+
+body.dark .sidebar h3,
+body.dark .sidebar label,
+body.dark .sidebar li,
+body.dark .sidebar select,
+body.dark #priceLabel,
+body.dark #priceLabel span {
+  color: #ffffff;
+}
+/* Default sidebar item */
+.sidebar ul li {
+  padding: 8px 0;
+  cursor: pointer;
+  color: #222;
+  transition: 0.2s;
+}
+
+/* Hover */
+.sidebar ul li:hover {
+  color: #2e7d32;
+}
+
+/* Active (clicked) */
+.sidebar ul li.active {
+  background: #e8f5e9;
+  color: #2e7d32;
+  font-weight: 600;
+  padding-left: 8px;
+  border-radius: 6px;
+}
+
+/* Dark mode active */
+body.dark .sidebar ul li.active {
+  background: #2a2a2a;
+  color: #81c784;
+}
+select {
+  background: #ffffff;
+  color: #222;
+  border: 1px solid #ccc;
+}
+
+/* When clicked (focus) */
+select:focus {
+  outline: none;
+  border: 1px solid #2e7d32;
+}
+
+/* Dark mode */
+body.dark select {
+  background: #2a2a2a;
+  color: #ffffff;
+  border: 1px solid #444;
+}
+label {
+  color: #222;
+}
+
+body.dark label {
+  color: #ffffff;
+}
+body:not(.dark) {
+  color: #222 !important;
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Login</title>
+
+<link rel="stylesheet" href="../assets/css/admin_login.css">
+</head>
+<body>
+
+<div class="login-container">
+
+  <div class="login-card">
+
+    <h2>🌿 Admin Login</h2>
+
+    <form id="loginForm">
+
+      <label>Username</label>
+      <input type="text" id="username" required>
+
+      <label>Password</label>
+      <input type="password" id="password" required>
+
+      <button type="submit">Login</button>
+
+      <p id="errorMsg" class="error"></p>
+
+    </form>
+
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+
+  </div>
+
+</div>
+
+<script>
+/* ===== LOGIN SYSTEM ===== */
+
+const ADMIN_USERNAME = "admin";
+const ADMIN_PASSWORD = "12345";
+
+document.getElementById("loginForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const user = document.getElementById("username").value;
+  const pass = document.getElementById("password").value;
+  const error = document.getElementById("errorMsg");
+
+  if(user === ADMIN_USERNAME && pass === ADMIN_PASSWORD){
+    localStorage.setItem("adminLoggedIn","true");
+    window.location.href = "dashboard.html";
+  } else {
+    error.textContent = "Invalid username or password";
+  }
+});
+
+/* ===== DARK MODE ===== */
+
+function toggleTheme(){
+  document.body.classList.toggle("dark");
+  localStorage.setItem("theme",
+    document.body.classList.contains("dark"));
+}
+
+if(localStorage.getItem("theme")==="true"){
+  document.body.classList.add("dark");
+}
+</script>
+
+</body>
+</html>

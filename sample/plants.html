@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/theme.css">
+</head>
+<body>
+  <div class="navbar">
+  <div class="navbar-left">
+    🌿 Pushpak
+  </div>
+
+  <div class="navbar-right">
+    <a href="/index.html">Home</a>
+    <a href="/plant_details.html">Plants</a>
+    <a href="/cart.html">Cart</a>
+
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+  </div>
+</div>
+
+
+<div class="container">
+
+  <div class="search-wrapper">
+    <input id="search" placeholder="Search" onkeyup="searchPlant()">
+  </div>
+
+  <div class="filter-row">
+    <select id="filterCategory" class="filter">
+      <option value="All">All</option>
+      <option value="Indoor">Indoor</option>
+      <option value="Outdoor">Outdoor</option>
+    </select>
+  </div>
+
+  <div id="plantGrid" class="plant-grid"></div>
+
+</div>
+
+
+  <div id="plantGrid" class="plant-grid"></div>
+</div>
+<script src="assets/js/main.js"></script>
+<script src="/assets/js/theme.js"></script>
+<script src="/assets/js/admin.js"></script>
+<style>
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+:root {
+  --primary: #2e7d32;
+  --primary-dark: #1b5e20;
+}
+
+/* ===== BODY ===== */
+body {
+  background: #f4f6f9;
+  padding: 20px;
+}
+
+/* ===== NAVBAR ===== */
+
+/* ===== NAVBAR ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--primary);
+  padding: 15px 30px;
+  color: white;
+}
+
+.navbar-left {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.navbar-right a {
+  color: white;
+  text-decoration: none;
+}
+
+.theme-toggle {
+  background: var(--primary-dark);
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.theme-toggle:hover {
+  background: #104d17;
+}
+
+
+/* ===== CONTAINER ===== */
+.container {
+  max-width: 1200px;
+  margin: 20px auto;
+}
+
+/* ===== SEARCH + FILTER ROW (LEFT ALIGNED) ===== */
+.top-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;          /* minimal gap */
+  margin-bottom: 20px;
+}
+
+/* ===== SEARCH ===== */
+#search {
+  width: 220px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 14px;
+}
+
+/* ===== FILTER ===== */
+.filter {
+  width: 140px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: white;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* ===== GRID ===== */
+.plant-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+/* ===== CARD ===== */
+.plant-card {
+  background: white;
+  border-radius: 10px;
+  padding: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.plant-card:hover {
+  transform: translateY(-5px);
+}
+
+.plant-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.plant-card h3 {
+  margin: 10px 0 5px;
+  font-size: 16px;
+}
+
+.plant-card p {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.plant-card button {
+  padding: 6px 10px;
+  border: none;
+  border-radius: 5px;
+  background: var(--primary);
+  color: white;
+  cursor: pointer;
+}
+
+.plant-card button:hover {
+  background: var(--primary-dark);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .top-controls {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #search, .filter {
+    width: 100%;
+  }
+}
+
+
+</style>
+    
+</body>
+</html>

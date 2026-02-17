@@ -1,0 +1,251 @@
+/* =========================
+   ROOT VARIABLES
+========================= */
+:root {
+    --primary: #2e7d32;
+    --light-bg: #f5f9f6;
+    --card-bg: #ffffff;
+    --text: #222;
+    --sidebar-bg: #ffffff;
+    --shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+body.dark {
+    --primary: #66bb6a;
+    --light-bg: #1b1b1b;
+    --card-bg: #242424;
+    --text: #f1f1f1;
+    --sidebar-bg: #2c2c2c;
+}
+
+/* =========================
+   GLOBAL
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    min-height: 100vh;
+    background: var(--light-bg);
+    color: var(--text);
+    transition: 0.3s;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+.sidebar {
+    width: 230px;
+    background: var(--sidebar-bg);
+    padding: 25px 15px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.sidebar a {
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 6px;
+    color: var(--text);
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    background: var(--primary);
+    color: white;
+}
+
+.sidebar button {
+    margin-top: auto;
+    padding: 8px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background: var(--primary);
+    color: white;
+}
+
+/* =========================
+   CONTENT
+========================= */
+.content {
+    flex: 1;
+    padding: 30px;
+}
+
+.content h2 {
+    margin-bottom: 20px;
+    color: var(--primary);
+}
+
+/* =========================
+   DASHBOARD CARDS
+========================= */
+.card {
+    background: var(--card-bg);
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    font-size: 18px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+}
+
+.card span {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--primary);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media(max-width: 900px) {
+    body {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .sidebar a {
+        flex: 1 1 120px;
+        text-align: center;
+    }
+
+    .sidebar button {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+/* =========================
+   FILTER DROPDOWN
+========================= */
+
+.filter {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    font-size: 14px;
+    background: var(--card-bg);
+    color: var(--text);
+    transition: 0.3s;
+}
+
+.filter:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 5px rgba(46,125,50,0.3);
+}
+
+/* =========================
+   PLANT GRID
+========================= */
+
+.plant-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 20px;
+}
+
+/* =========================
+   PLANT CARD
+========================= */
+
+.plant-card {
+    background: var(--card-bg);
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.plant-card:hover {
+    transform: translateY(-5px);
+}
+
+.plant-card img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.plant-card h3 {
+    margin-bottom: 5px;
+    color: var(--primary);
+}
+
+.plant-card p {
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+/* =========================
+   ACTION BUTTONS
+========================= */
+
+.plant-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.plant-actions button {
+    flex: 1;
+    padding: 7px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.edit-btn {
+    background: var(--primary);
+    color: white;
+    margin-right: 5px;
+}
+
+.delete-btn {
+    background: #d32f2f;
+    color: white;
+}
+
+.plant-actions button:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width: 600px) {
+    .plant-grid {
+        grid-template-columns: 1fr;
+    }
+}
+

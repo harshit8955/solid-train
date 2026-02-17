@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/theme.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PUSHPAK</title>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="header">
+
+  <div class="logo">🌿 PUSHPAK</div>
+
+  <nav class="nav">
+    <a href="#">Home</a>
+    <a href="plants.html">Plants & Trees</a>
+    <a href="#">Garden Tips</a>
+    <a href="#">Facts</a>
+    <a href="admin/admin_login.html">Admin</a>
+    <a href="#">About Us</a>
+  </nav>
+
+  <div class="header-controls">
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+    <button id="langBtn">हिंदी</button>
+    <a href="cart.html">🛒</a>
+  </div>
+
+</header>
+
+<!-- ================= MAIN LAYOUT ================= -->
+<div class="layout">
+
+  <!-- ========== SIDEBAR ========== -->
+  <aside class="sidebar">
+
+    <h3>Categories</h3>
+
+    <ul id="categoryList">
+      <li class="active" data-category="all">All Plants</li>
+      <li data-category="flowering">Flowering</li>
+      <li data-category="indoor">Indoor</li>
+      <li data-category="outdoor">Outdoor</li>
+      <li data-category="fruit">Fruit</li>
+      <li data-category="succulent">Succulents</li>
+    </ul>
+
+    <h3>Filters</h3>
+
+    <label>Max Price (₹): <span id="priceValue">2000</span></label>
+    <input type="range" id="priceFilter" min="100" max="2000" value="2000">
+
+    <label>Plant Size</label>
+    <select id="sizeFilter">
+      <option value="all">All</option>
+      <option value="small">Small</option>
+      <option value="medium">Medium</option>
+      <option value="large">Large</option>
+    </select>
+
+    <label>Sunlight</label>
+    <select id="sunFilter">
+      <option value="all">All</option>
+      <option value="low">Low</option>
+      <option value="medium">Medium</option>
+      <option value="high">High</option>
+    </select>
+
+  </aside>
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <main class="main-content">
+    <div id="plantGrid" class="plant-grid"></div>
+  </main>
+
+</div>
+
+<script src="assets/js/main.js"></script>
+<script src="assets/js/theme.js"></script>
+<script src="assets/js/admin.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Plant</title>
+</head>
+<body>
+
+<div class="sidebar">
+    <a href="/admin/dashboard.html">Dashboard</a>
+    <a href="/admin/add-plant.html">Add Plant</a>
+    <a href="/admin/manage-plants.html">Manage</a>
+    <a href="orders.html">Orders</a>
+    <a href="/index.html">Users</a>
+    <button onclick="toggleTheme()">🌙</button>
+
+</div>
+
+<div class="content">
+    <h2>Add New Plant</h2>
+
+    <form id="plantForm" class="plant-form">
+        <label>Special Tag</label>
+<select id="ptag">
+  <option value="">None</option>
+  <option value="new">New</option>
+  <option value="featured">Featured</option>
+  <option value="sale">Sale</option>
+  <option value="bestseller">Bestseller</option>
+</select>
+
+
+        <label>Plant Name</label>
+        <input type="text" id="plantName" required>
+
+        <label>Category</label>
+        <select id="category" required>
+            <option value="">Select Category</option>
+            <option value="Indoor">Indoor</option>
+            <option value="Outdoor">Outdoor</option>
+        </select>
+
+        <label>Price (₹)</label>
+        <input type="number" id="price" required>
+
+        <label>Upload Image</label>
+        <input type="file" id="imageUpload" accept="image/*" required>
+
+        <img id="preview" class="image-preview">
+
+        <button type="submit">Add Plant</button>
+
+    </form>
+</div>
+<script src="../assets/js/admin.js"></script>
+<script src="../assets/js/theme.js"></script>
+<script src="/assets/js/session.js"></script>
+</body>
+</html>
+<style>
+    /* ================= RESET ================= */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI', sans-serif;
+}
+
+/* ================= BODY ================= */
+body{
+  display:flex;
+  min-height:100vh;
+  background:#f4f6f9;
+  transition:0.3s ease;
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar{
+  width:240px;
+  background:#2e7d32;
+  padding:25px 15px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.sidebar a{
+  text-decoration:none;
+  color:white;
+  padding:10px 12px;
+  border-radius:6px;
+  transition:0.3s;
+  font-size:14px;
+}
+
+.sidebar a:hover{
+  background:104d17;
+}
+
+.sidebar button{
+  margin-top:auto;
+  padding:8px;
+  border:none;
+  border-radius:6px;
+  background:#1b5e20;
+  color:white;
+  cursor:pointer;
+}
+
+/* ================= CONTENT ================= */
+.content{
+  flex:1;
+  padding:40px;
+}
+
+.content h2{
+  margin-bottom:20px;
+}
+
+/* ================= FORM CARD ================= */
+.plant-form{
+  max-width:520px;
+  background:white;
+  padding:30px;
+  border-radius:12px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.08);
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+}
+
+/* ================= LABEL ================= */
+.plant-form label{
+  font-size:14px;
+  font-weight:600;
+  color:#333;
+}
+
+/* ================= INPUT & SELECT ================= */
+.plant-form input,
+.plant-form select{
+  padding:10px;
+  border-radius:6px;
+  border:1px solid #ccc;
+  font-size:14px;
+  outline:none;
+  transition:0.3s;
+}
+
+.plant-form input:focus,
+.plant-form select:focus{
+  border:1px solid #2e7d32;
+  box-shadow:0 0 5px rgba(46,125,50,0.3);
+}
+
+/* ================= FILE INPUT ================= */
+.plant-form input[type="file"]{
+  padding:6px;
+}
+
+/* ================= IMAGE PREVIEW ================= */
+.image-preview{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  border-radius:10px;
+  border:1px solid #ddd;
+  display:none;
+  margin-top:5px;
+}
+
+/* ================= BUTTON ================= */
+.plant-form button{
+  margin-top:10px;
+  padding:12px;
+  border:none;
+  border-radius:8px;
+  background:#2e7d32;
+  color:white;
+  font-size:15px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.plant-form button:hover{
+  background:#1b5e20;
+}
+
+/* ================= DARK MODE ================= */
+body.dark{
+  background:#121212;
+  color:white;
+}
+
+body.dark .sidebar{
+  background:#1b5e20;
+}
+
+body.dark .plant-form{
+  background:#1e1e1e;
+}
+
+body.dark .plant-form label{
+  color:#e0e0e0;
+}
+
+body.dark input,
+body.dark select{
+  background:#2a2a2a;
+  color:white;
+  border:1px solid #444;
+}
+
+body.dark .image-preview{
+  border:1px solid #444;
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:900px){
+
+  body{
+    flex-direction:column;
+  }
+
+  .sidebar{
+    width:100%;
+    flex-direction:row;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+
+  .content{
+    padding:20px;
+  }
+
+}
+</style>
